@@ -1,4 +1,3 @@
-
 # **Diagrama de casos de Uso**
 
 ![Casos_de_Uso](image/Readme/casos.png)
@@ -285,15 +284,20 @@ Se utiliza Kong que es **nuestro API Gateway** , es decir, es la **puerta de ent
 
 En lugar de exponer cada microservicio directamente al cliente, se pone **Kong en medio** .
 
-## [Docker-Compose](docker-compose.yml)
+## [kong](kong.yaml)
 
 `docker compose up -d`
 
 * Levanta **Kong** junto con tus microservicios.
 * Aplica automáticamente el **declarative config** incluido en `kong.yaml`.
 
-para levantar nuevos servicios sin bajar el contenedor 
+para levantar nuevos servicios sin bajar el contenedor
 
 `kong reload -p /usr/local/kong`
 
 `docker compose restart kong `
+
+## [docker-compose](docker-compose.yaml)
+
+
+Docker compose levanta los crea las imagenes y levanta los contenedores de los servicios.
