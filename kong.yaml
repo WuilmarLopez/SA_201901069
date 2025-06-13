@@ -1,0 +1,69 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: product-service
+    url: http://product-service:8001
+    routes:
+      - name: product-route
+        paths:
+          - /products
+
+  - name: user-service
+    url: http://user-service:8005
+    routes:
+      - name: user-route
+        paths:
+          - /users
+
+  - name: cart-service
+    url: http://cart-service:8002
+    routes:
+      - name: cart-route
+        paths:
+          - /cart
+
+  - name: order-service
+    url: http://order-service:8003
+    routes:
+      - name: order-route
+        paths:
+          - /orders
+
+  - name: payment-service
+    url: http://payment-service:8004
+    routes:
+      - name: payment-route
+        paths:
+          - /payments
+
+  - name: inventory-service
+    url: http://inventory-service:8006
+    routes:
+      - name: inventory-route
+        paths:
+          - /inventory
+
+  - name: notification-service
+    url: http://notification-service:8008
+    routes:
+      - name: notification-route
+        paths:
+          - /notifications
+
+  - name: analytics-service
+    url: http://analytics-service:8009
+    routes:
+      - name: analytics-route
+        paths:
+          - /analytics
+
+plugins:
+  - name: cors
+    config:
+      origins:
+        - "*"
+  - name: rate-limiting
+    config:
+      minute: 100
+      hour: 1000

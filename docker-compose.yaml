@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  kong:
+    image: kong:latest
+    volumes:
+      - ./kong.yaml:/usr/local/kong/kong.yaml
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/usr/local/kong/kong.yaml
+    ports:
+      - "8000:8000" # Proxy port
+      - "8001:8001" # Admin API port
+    networks:
+      - backend
+
+  # Aquí irían tus otros servicios: product-service, user-service, etc.
+
+networks:
+  backend:
